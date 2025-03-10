@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>session_8</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>session_9</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7516,29 +7516,36 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Session-8:-Graph-algorithms-on-weighted-graphs">Session 8: Graph algorithms on weighted graphs<a class="anchor-link" href="#Session-8:-Graph-algorithms-on-weighted-graphs">¶</a></h1><p><em>Data Structures and Algorithms</em></p>
+<h1 id="Session-9:-Greedy-algorithms-and-the-knapsack-problem">Session 9: Greedy algorithms and the knapsack problem<a class="anchor-link" href="#Session-9:-Greedy-algorithms-and-the-knapsack-problem">¶</a></h1><p><em>Data Structures and Algorithms</em></p>
 <p><em>Imperial College Business School</em></p>
 <hr/>
-<p>We will continue to work on graph algorithms, specifically on Dijkstra's algorithm for shortest paths in weighted graphs.</p>
+<p>We will finish the course with a discussion on the limits of computation. Even with all the computational resources at our disposal  some problems turn out to be difficult to solve accurately at large scale. We will talk about intractability and the use of approximations. Examples include the knapsack problem and the traveling salesman problem.</p>
 <hr/>
 <h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">¶</a></h2><p><strong>Readings:</strong></p>
-<p>Wikipedia. Dijkstra’s algorithm.</p>
+<p>Guttag. Chapter 14.1.</p>
+<p>VanderPlas, Jake. Python Data Science Handbook.</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm</a></li>
+<li><p><a href="https://github.com/jakevdp/PythonDataScienceHandbook">https://github.com/jakevdp/PythonDataScienceHandbook</a></p>
+</li>
+<li><p>Chapter 3</p>
+</li>
 </ul>
-<p>Abiy, Thaddeus, et al. Dijkstra’s shortest path algorithm.</p>
+<p><em><strong>Optional Readings:</strong></em></p>
+<p>Rougier, Nicolas. Matplotlib tutorial.</p>
 <ul>
-<li><a href="https://brilliant.org/wiki/dijkstras-short-path-finder/">https://brilliant.org/wiki/dijkstras-short-path-finder/</a></li>
+<li><a href="https://www.labri.fr/perso/nrougier/teaching/matplotlib/">https://www.labri.fr/perso/nrougier/teaching/matplotlib/</a></li>
 </ul>
-<p>Hazzard, Erik. Dijkstra’s Algorithm - Shortest Path</p>
+<p>Bokeh 5-minute overview.</p>
 <ul>
-<li><a href="http://vasir.net/blog/game_development/dijkstras_algorithm_shortest_path">http://vasir.net/blog/game_development/dijkstras_algorithm_shortest_path</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/quickstart/quickstart.ipynb">http://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/quickstart/quickstart.ipynb</a></li>
 </ul>
 <p><strong>Questions:</strong></p>
 <p>Please read the material above, and think about how you would explain to your classmates:</p>
 <ul>
-<li>What are the assumptions made in Dijkstra’s algorithm, and what is the output?</li>
-<li>How does the algorithm work?</li>
+<li><p>What are the assumptions of the (0-1) knapsack problem, and what is the output? What is the computational complexity of the problem?</p>
+</li>
+<li><p>There is a greedy algorithm to the knapsack problem. What is a greedy algorithm and what are their main benefits and problems?</p>
+</li>
 </ul>
 <hr/>
 </div>
@@ -7551,11 +7558,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Submission">Submission<a class="anchor-link" href="#Submission">¶</a></h2><p>At the end of this session, you will submit the file <code>ses08.py</code> following the instructions below.</p>
-<ul>
-<li>Questions 1-3 are the main part of the session.</li>
-<li>Question 4 is optional. It is recommended that you work on these if you finish the required questions early, or on your own time as extra practice.</li>
-</ul>
+<h2 id="About">About<a class="anchor-link" href="#About">¶</a></h2><p>This session is not graded. You should work through the exercises here on your own time.</p>
 <h2 id="Using-OK">Using OK<a class="anchor-link" href="#Using-OK">¶</a></h2><p>We will use a program called <code>ok</code> to test our code.</p>
 <p>You should have OK in the Codespace for this session. The session will include instructions for running <code>ok</code> commands as we need them.</p>
 <p>For help with running <code>ok</code>, you can run</p>
@@ -7568,10 +7571,9 @@ a.anchor-link {
 <pre><code>python ok -q function_name -v
 </code></pre>
 <p>If you get stuck with how to call <code>ok</code>, please check the first session for more detailed instructions on the system.</p>
-<h2 id="Recap">Recap<a class="anchor-link" href="#Recap">¶</a></h2><h3 id="Question-1:-Recap">Question 1: Recap<a class="anchor-link" href="#Question-1:-Recap">¶</a></h3><p>Use the command</p>
+<h2 id="Recap">Recap<a class="anchor-link" href="#Recap">¶</a></h2><h3 id="Question-1:-Recap">Question 1: Recap<a class="anchor-link" href="#Question-1:-Recap">¶</a></h3><p>Let's start by some recap exercises. Run the following command on the command line/terminal:</p>
 <pre><code>python ok -q recap -u
 </code></pre>
-<p>on the command line to recap some of the concepts we've seen earlier.</p>
 </div>
 </div>
 </div>
@@ -7582,93 +7584,12 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Implementing-Dijkstra's-algorithm">Implementing Dijkstra's algorithm<a class="anchor-link" href="#Implementing-Dijkstra's-algorithm">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Weighted-graphs">Weighted graphs<a class="anchor-link" href="#Weighted-graphs">¶</a></h2><p>We've now started implementing graph algorithms, specifically the breadth-first search (BFS). This allowed us to find the shortest path between two nodes of a graph (such as Kevin Bacon and Nicole Kidman in the network of Hollywood actors).</p>
-<p>The BFS algorithm assumes that graph edges are unweighted (or all have equal weights), which fits some networks. But when edges have weights (lengths, costs) associated with them, we need a different algorithm to find shortest paths. We'll next implement Dijkstra's shortest-path algorithm for this purpose.</p>
-<p>We'll adapt our <code>Graph</code> code from last time to deal with weighted edges. We represented a graph using an adjacency list, specifically a dictionary where the dictionary keys were nodes and the dictionary values were sets of other nodes this node was connected to. Now we'll adjust this representation to include edge weights. We'll add the weights in the dictionary values, which will become dictionaries themselves instead of sets. Here's an example adjacency list dictionary of a directed graph with weights. Try drawing the graph on a piece of paper.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="p">{</span>
-<span class="s1">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'b'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-<span class="s1">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'c'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-<span class="s1">'c'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
-<span class="s1">'d'</span><span class="p">:</span> <span class="p">{}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-2:-Lecture-graph">Question 2: Lecture graph<a class="anchor-link" href="#Question-2:-Lecture-graph">¶</a></h3><p>Write the example from the lecture as a dictionary. For example, the weight of the edge from <code>a</code> to <code>b</code> should 1. Notice that this is a directed graph: for example, there is no edge starting from node <code>e</code>. Complete your implementation in the function <code>lecture_graph</code> in <code>ses08.py</code>. You can test your implementation with</p>
-<pre><code>python ok -q lecture_graph
-</code></pre>
-<p>The Python file <code>ses08_graphs.py</code> contains the implementations of <code>Digraph</code> and <code>Graph</code> for directed and undirected graphs. These are similar to the ones we used in the previous tutorial, but with edge weights.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Dijkstra's-shortest-path-algorithm">Dijkstra's shortest-path algorithm<a class="anchor-link" href="#Dijkstra's-shortest-path-algorithm">¶</a></h2><p>Next, let's implement Dijkstra's algorithm for finding shortest paths. We'll start with the approach we went through in the lecture, which gives us a polynomial running time $O(mn)$. In the extra problem, you'll have a chance to implement a much faster version of the algorithm using a heap data structure.</p>
-<p>Here are the steps of Dijkstra's algorithm. It works on a graph where the set of nodes (vertices) is $V$, and edges $E$.</p>
-<p><strong>Initialisation</strong>: (starting from node $s$)</p>
-<ul>
-<li>We store the set of nodes we have visited (explored) so far in the set $X$. This set starts empty, except we add the starting node $s$ to $X$.</li>
-<li>We store the shortest distances from $s$ to all nodes in the dictionary $A$. Initially we set the distance from the starting node to itself to zero: $A[s] = 0$.</li>
-</ul>
-<p><strong>Main loop</strong>, repeated while we haven't visited all nodes: (that is, the set $X$ is not equal to the set of all nodes $V$, or $X \neq V$):</p>
-<ul>
-<li>We loop through all <em>edges starting in nodes we've visited</em> and <em>ending in nodes we have not visited yet</em>.</li>
-<li>In other words, we go through all edges $v \to w$ where $v$ is in the set $X$ and $w$ is not in $X$</li>
-<li>Among these edges, we pick the edge that minimizes the Dijkstra score $A[v] + c_{vw}$, where $A[v]$ is the shortest distance to the already visited node $v$ and $c_{vw}$ is the edge weight from $v \to w$</li>
-<li>We make note of this minimum-score edge, call it $v^* \to w^*$. That is, it starts from the node $v^*$ and ends in the node $w^*$</li>
-<li>We add the end node $w^*$ to the set of nodes we have visited $X$, and set its minimum distance to $A[w^*]=A[v^*]+c_{v^*w^*}$</li>
-<li>We then repeat these steps until we've visited all nodes</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The function <code>dijkstra</code> in the Python file <code>ses08.py</code> contains code for Dijkstra's algorithm. Our goal is to understand the implementation.</p>
-<p>Go through the code and try to relate each step to the algorithm above. A good way to start is by looking at the initialization step in the code and comparing it to the algorithm above. Try to connect the Python steps to the steps above. Then move into the main loop, making the same comparison with the algorithm above. The comments in the file provide hints for your implementation.</p>
-<p>In words, each iteration of the main loop will run through all edges starting from each node that we have already explored (the nodes in $X$) using a nested for loop. It checks if these edges end outside of $X$, and then calculates the Dijkstra score for the edge. Among these edges, the loop should pick the one with the minimum Dijkstra score as defined above. It keeps track of the minimum score using the helper variables <code>min_dist, min_edge</code>. It then uses the minimum Dijkstra score edge to add the destination node to $X$ as described in the algorithm above.</p>
-<p>Test the algorithm on the lecture example graph. Create the example graph from your dictionary using</p>
+<h2 id="The-knapsack-problem">The knapsack problem<a class="anchor-link" href="#The-knapsack-problem">¶</a></h2><p>During the lecture, we started looking at the knapsack problem. The problem is simple: you want to pick the most valuable items to fill out a 'knapsack' with limited capacity. But the applications are plentiful: many problems with budget constraints in finance and operations management are versions of the knapsack problem or closely related to it.</p>
+<p>More precisely, we start with a set of $n$ items that each have values $v_i$ and weights $w_i$ and are trying to maximize the total value of items to pick, subject to a capacity constraint $W$:</p>
+<p>$\max_{x_i \in \{0,1\}} \sum_{i} x_i v_i$</p>
+<p>$ \text{s.t. } \sum_{i} x_i w_i \le W$</p>
+<p>This is the binary (0/1) version of the knapsack problem, where we either pick each item or do not.</p>
+<p>Our goal is to fill a knapsack (a budget) with generic items (eg projects for a firm). To implement this in Python, our object-oriented instincts suggest creating a <code>class Item</code>.</p>
 </div>
 </div>
 </div>
@@ -7680,7 +7601,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="n">lecture_graph</span><span class="p">())</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="c1"># more code...</span>
 </pre></div>
 </div>
 </div>
@@ -7693,13 +7619,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h3><p>The algorithm now correctly calculates shortest distances but does not yet keep track of the shortest paths taken. Let's update the algorithm to also keep track of <code>prev_nodes</code>, which is a dictionary of the previous node on path to any node. If we store the previous node on the shortest path, we can backtrack later to recreate the shortest paths.</p>
-<p>You should make the following change in the algorithm. As you mark a node visited, you should set the value of <code>prev_nodes</code> to be the source node from which the current node was visited. You'll then want to update your function to also return <code>prev_nodes</code>.</p>
-<p>You can test your implementation with</p>
-<pre><code>python ok -q dijkstra
-</code></pre>
-<p>Test the algorithm again. You can use the function <code>print_path</code> to print out the path from the start node to any other node.</p>
-<p><strong>Extra.</strong> <em>(You do not need to implement this part and there is no ok test.)</em> Notice that the algorithm as implemented now assumes that there is a path from the start node to all other nodes in the graph. So, in the directed lecture graph, starting from a node other than <code>a</code> (say, <code>b</code>) will produce an error. How would you fix this problem in the code?</p>
+<p>When creating a new knapsack item, we initialise it with a specified name, value, and weight. The complete implementation of the class is given in the Python file <code>ses09.py</code>.</p>
 </div>
 </div>
 </div>
@@ -7710,339 +7630,134 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="All-done!">All done!<a class="anchor-link" href="#All-done!">¶</a></h2><p>That's it for the main exercises.</p>
-<p>To submit the exercises, please follow these instructions from your GitHub Codespace:</p>
-<ol>
-<li>Test all your functions using the above <code>ok</code> commands.</li>
-<li>Open the <code>Source Control</code> menu on the left-hand panel of VS Code and enter any message in the message field (e.g. "submit")</li>
-<li>Click the blue/green button once (to <code>Commit</code>), and then a second time (to <code>Sync</code>).</li>
-<li>There should be no files visible in the <code>Source Control</code> menu if submission succeeded.</li>
-</ol>
+<h3 id="Filling-the-knapsack">Filling the knapsack<a class="anchor-link" href="#Filling-the-knapsack">¶</a></h3><p>Before turning to the binary knapsack problem, let's first look at the simpler <em>fractional</em> version of it. In the fractional knapsack, we assume that our items are divisible. For example, you're travelling to Asia and want to bring back different kinds of tea leaves - you can divide them into small amount.</p>
+<p>We developed  <em>greedy approaches</em> for this choice in the lecture. Roughly speaking, a greedy choice is myopic: it seeks to maximize the current value added, without considering the future consequences of the choice. We looked at several greedy choices: the maximum-value item, the minimum-weight item, and the best item in terms of bang-for-buck. The function <code>greedy</code> contains a skeleton code for an implementation of this choice.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greedy</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">max_weight</span><span class="p">,</span> <span class="n">key_function</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Greedy solution of the knapsack problem</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        items - list of potential knapsack items, </span>
+<span class="sd">        max_weight - number &gt;= 0</span>
+<span class="sd">        key_function - function that elements of items to floats</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        list of items of greedy knapsack algorithm,</span>
+<span class="sd">        where items are picked as sorted by key_function  </span>
+<span class="sd">    </span>
+<span class="sd">    """</span>
+    <span class="c1"># Sort items   </span>
+    <span class="n">sorted_items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key_function</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">total_value</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># knapsack value</span>
+    <span class="n">total_weight</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># knapsack weight &lt;= maxWeight</span>
+    <span class="c1"># more code...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The function takes three inputs: a list of items, a capacity constraint, and <code>key_function</code>, a function to that defines your greedy choice. Notice how Python allows us to pass a function as an argument to another function in this convenient way.</p>
+<p>The function <code>greedy</code> then proceeds to pass the <code>key_function</code> on to Python's <code>sorted</code>-function. This function sorts the list of items based on the key function we're using.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Question-2:-Greedy">Question 2: Greedy<a class="anchor-link" href="#Question-2:-Greedy">¶</a></h3><p>First, complete the key functions <code>value</code>, <code>weight_inverse</code> and <code>density</code> we'll use for sorting. These functions should call the relevant methods in the <code>Item</code> class to get the desired values. You can try out sorting a list of items by the different functions using <code>sorted</code>.</p>
+<p>Then complete the function <code>greedy</code>. After sorting the list of items based on the desired function, the function should pick each item in turn, then finally returning:</p>
+<ul>
+<li><code>result</code>, a list containing the items in the knapsack.</li>
+<li><code>total_value</code>, the sum of the values of the items in the knapsack</li>
+</ul>
+<p>Use the command</p>
+<pre><code>python ok -q test_greedy -v
+</code></pre>
+<p>on the command line to test your solution.</p>
+<p>Solve the knapsack problem with the different greedy choices. We saw in the lecture that the bang-for-buck greedy algorithm seems like a reasonable choice. Try your greedy algorithm out on different sets of items.  How different are your results with the different greedy approaches?</p>
+<h3 id="Brute-force">Brute force<a class="anchor-link" href="#Brute-force">¶</a></h3><p>The solution from the greedy algorithm is not in general optimal in the binary case. But what is the optimal solution?</p>
+<p>For relatively small problems, we can implement a 'brute force' solution of the knapsack problem, which simply loops through all possible subsets of items that we can create from the items we have, and picks the best feasible one.</p>
+<p>The problem with this approach is that there are <em>exponentially many</em> subsets to go through. To create the subsets, the code contains a function <code>power_set</code> that creates all possible subsets of a list of items $L$. To do this, it uses a clever Python concept called a <em>generator</em>: it does not try to create all the subsets at once store in memory - with an exponential number of subsets, this could get ugly! Instead, the generator creates extra subsets "live", that is, whenever we need one, it generates the next one. This is done with the keyword <code>yield</code>. You can read more about generators in Chapter 8.3.1 of the textbook. The result is that the output from the function <code>power_set</code> can simply be iterated through. This is done in the <code>brute_force</code> function that follows.</p>
+<p>Try solving the optimal solution of the brute force algorithm for small problems. How fast is the greedy solution? How large problems can you solve via brute force? What is the complexity of the brute-force solution?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Question-3:-Greedy-fractional">Question 3: Greedy fractional<a class="anchor-link" href="#Question-3:-Greedy-fractional">¶</a></h3><p>Complete the function <code>greedy_fractional</code> in <code>ses09_extra.py</code>, which solves a fractional version of the knapsack problem. In this problem, you can pick not just entire items but any fraction of an item. We pick in the same order as before, but if we cannot fit the entire item, we just use as much of that item as we can until the knapsack is full. In this case, the greedy algorithm with density sorting provides the optimal solution.</p>
+<p>Use the command</p>
+<pre><code>python ok -q test_greedy_fractional -v
+</code></pre>
+<p>on the command line to test your solution.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Question-4:-Fantasy-football">Question 4: Fantasy football<a class="anchor-link" href="#Question-4:-Fantasy-football">¶</a></h3><p>We'll now apply our algorithm to a potentially useful real-world application: fantasy football (FF). In fantasy football, you act as a manager of a football team in eg the Premier League and try to build the best team of players possible using a limited budget. FF leagues are popular among football fans: for example, the Premier League organizes an official league on its website, with significant prizes for best 'managers'.</p>
+<p>How is the the success of a FF team determined? The Premier League has a set of rules for this: for example, your players will get a certain number of points for scoring/assisting goals, keeping an empty sheet, being named man of the match, and so on. The league also determines the costs of acquiring different players into your team based on their popularity and performance.</p>
+<p>You're probably starting to see this as a knapsack problem: we have a limited budget, as well as costs for each player. However, we're missing the 'values' of different players. Determining a player's expected future value for your team (how many goals will they score in following games) may be more art than science, but one simple way to try to value them is to use their past performance (in terms of points already accumulated). The Premier League helpfully publishes the current scores of each player on their website. If we download this data, we have everything we need to solve a knapsack problem.</p>
+<p>This data (not necessarily the most recent version) is included in a JSON file downloaded from the website. The Python file <code>ses09_extra.py</code> further includes helper functions for you to read this data into a list of players:</p>
+<ul>
+<li>The <code>read_players</code> takes JSON data downloaded from the Premier League website containing the players values, and parses it to create lists of player attributes.</li>
+<li>The <code>Player</code> class is very similar to the <code>Item</code> class, but adapted for player attributes</li>
+</ul>
+<p>In order to allow you to start building your team, we won't go into much detail here - you can just run the functions. But going through these functions later is a useful exercise to develop your skills in using code written by others.</p>
+<p>Go ahead and solve the problem using the greedy algorithm on the list of players and a budget constraint. Try out different budget constraints. What is the result? Is this what a football team looks like? What went wrong?</p>
+<p>You'll probably notice want to have exactly 11 players in your team, and at specific places too (at most a single goalkeeper too and so on).
+In the language of optimisation, this is a <em>cardinality constraint</em> on the knapsack problem. That is, the optimisation problem would have an additional constraint</p>
+<p>$\sum_i x_i \le 11.$</p>
+<p>This is a somewhat more challenging problem. Try to implement a greedy heuristic with a simple way of dealing with this: when picking in the greedy order, we'll keep track of the numbers in different positions and make sure the solution does not break any of the constraints. This is an open problem for you to explore, so there are no tests for this function.</p>
+<p>This is probably not the best solution you could find. What could you do to improve your solution? A brute-force algorithm would find the correct solution, but there are many players so it will be quite slow. There are several optimisation methods that could help you, but these are beyond the scope of this course so they are left for you to explore. For example, you could look into dynamic programming and genetic algorithms. Guttag's book shows you a dynamic programming algorithm for the knapsack problem (without the extra constraints on the number of players etc); for genetic algorithms, you could start by searching online for "genetic algorithms fantasy football python".</p>
+<p>Note there are no tests for this exercise.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="All-done!">All done!<a class="anchor-link" href="#All-done!">¶</a></h2><p>That's it!</p>
 <h2 id="Review">Review<a class="anchor-link" href="#Review">¶</a></h2><p>How would you explain to a classmate:</p>
 <ul>
-<li>How do we represent networks as graphs?</li>
-<li>The steps of Dijkstra's algorithm?</li>
-<li>The computational complexity of Dijkstra's algorithm?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Optional-exercises">Optional exercises<a class="anchor-link" href="#Optional-exercises">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Graphs,-the-easy-way">Graphs, the easy way<a class="anchor-link" href="#Graphs,-the-easy-way">¶</a></h3><p>When working on graph problems in practice, we can usually apply readymade Python libraries. Today we'll use the popular <code>networkx</code> library to study shortest distances on a London Underground dataset.</p>
-<p>The Python file <code>ses08_extra.py</code> contains sample code for using the <code>networkx</code> library.</p>
-<p>We first import the library and read the lecture network into the graph data structure that networkx uses. With the graph at hand, we can calculate shortest distances and paths with a single command.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">create_lecture_graph_networkx</span><span class="p">()</span>
-<span class="n">shortest_dists</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">single_source_dijkstra_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
-<span class="n">all_shortest_dists</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The folder also contains the Excel file <code>tube_data.xls</code>. It contains London Underground network interstation travel times for the network as it existed about a decade ago. We can read the data into Python using pandas. (We'll return to pandas in the last session.)</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read London underground data.</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="n">tube_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'tube_data.xls'</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">'Runtime'</span><span class="p">)</span>
-<span class="n">tube_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Distance (Kms)</th>
-<th>Un-impeded Running Time (Mins)</th>
-<th>AM peak (0700-1000) Running Time (Mins)</th>
-<th>Inter peak (1000 - 1600) Running time (mins)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>count</th>
-<td>743.000000</td>
-<td>743.000000</td>
-<td>743.000000</td>
-<td>743.000000</td>
-</tr>
-<tr>
-<th>mean</th>
-<td>1.313230</td>
-<td>2.052647</td>
-<td>2.442105</td>
-<td>2.394008</td>
-</tr>
-<tr>
-<th>std</th>
-<td>1.029361</td>
-<td>1.048971</td>
-<td>1.117481</td>
-<td>1.102516</td>
-</tr>
-<tr>
-<th>min</th>
-<td>0.250000</td>
-<td>0.766667</td>
-<td>1.000000</td>
-<td>1.000000</td>
-</tr>
-<tr>
-<th>25%</th>
-<td>0.745000</td>
-<td>1.483333</td>
-<td>1.954017</td>
-<td>1.750000</td>
-</tr>
-<tr>
-<th>50%</th>
-<td>1.060000</td>
-<td>1.850000</td>
-<td>2.000000</td>
-<td>2.000000</td>
-</tr>
-<tr>
-<th>75%</th>
-<td>1.590000</td>
-<td>2.283333</td>
-<td>2.865151</td>
-<td>2.750000</td>
-</tr>
-<tr>
-<th>max</th>
-<td>11.630000</td>
-<td>11.016667</td>
-<td>11.500000</td>
-<td>11.500000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The distances are provided as both distances and travel times. Let's read the data into a graph.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tube_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">'Station from (A)'</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s1">'Station to (B)'</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s1">'AM peak (0700-1000) Running Time (Mins)'</span><span class="p">])</span>
-
-<span class="c1"># Get all edges with weights </span>
-<span class="n">all_edges</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Finally, let's calculate shortest distances.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">all_shortest_dists</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">all_shortest_paths</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-
-<span class="n">all_shortest_dists_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">all_shortest_dists</span><span class="p">)</span>
-<span class="n">all_shortest_paths_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">all_shortest_paths</span><span class="p">)</span>
-
-<span class="n">all_shortest_dists_dict</span><span class="p">[</span><span class="s1">'SOUTH KENSINGTON'</span><span class="p">][</span><span class="s1">'LIVERPOOL STREET'</span><span class="p">]</span>
-<span class="n">all_shortest_paths_dict</span><span class="p">[</span><span class="s1">'SOUTH KENSINGTON'</span><span class="p">][</span><span class="s1">'LIVERPOOL STREET'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Inspect the results and compare them to the <a href="http://content.tfl.gov.uk/standard-tube-map.pdf">Tube map</a>. There is something funny going on... What are we missing in the data?</p>
-<blockquote>
-<p><strong>Advanced.</strong> There are many other great Python libraries for dealing with network and graph data. For example, the <a href="http://geoffboeing.com/2016/11/osmnx-python-street-networks/"><code>osmnx</code></a> library builds on <code>networkx</code> to combine its algorithms with map data from the <a href="https://www.openstreetmap.org/">OpenStreetMap</a> service.</p>
-</blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Dijkstra-with-a-heap">Dijkstra with a heap<a class="anchor-link" href="#Dijkstra-with-a-heap">¶</a></h3><p>We can dramatically improve the speed of our implementation of Dijkstra's algorithm using a specific data structure: a heap (or a priority queue). The heap data structure's core strength is its fast means for find the minimum value within it. This can be done in $O(\log n)$, while for a list this would take linear time. A heap also allows item deletion and insertion in $O(\log n)$ time.</p>
-<p>Conveniently, these are precisely the operations we repeatedly need in Dijkstra's algorithm. We'd like to hold the edges connecting $X$ and $V-X$ in a "priority queue" where they are ordered not by when they enter the queue as in breadth-first search, but by their Dijkstra score. Then we could simply pick the best edge in every iteration. The problem is that we need to keep the queue in order when updating Dijkstra scores. This is where a heap becomes useful: by virtue of logarithmic-time heap operations, we can manage this in $O(m \log n)$.</p>
-<p>It is useful take a moment to compare this approach to breadth-first search. In both algorithms, we loop through all nodes and keep a queue of which node to visit next. In BFS, with no edge weights, we had a simple queue of nodes and didn't need priorities. In Dijkstra, to account for weights, we keep a priority queue to visit the nodes in the correct order. The heap data structure allows precisely this functionality, with logarithmic operations to manage the priority order.</p>
-<p>Although the inner workings of heaps are interesting, we will not go into detail here - you can find great material on them in the algorithms books suggested in the syllabus, or various online sources. If you want to go further, you can try implementing a heap yourself, but this is beyond the scope of this course.</p>
-<p>For this exercise, we will instead use a built-in heap queue implementation from the <code>heapq</code> library. While it is very convenient, it does not in fact have a logarithmic-time <code>delete</code> method of a standard heap. Therefore we suggest you implement the algorithm relying on just insertion and extracting the minimum, as follows.</p>
-<p><strong>Initialize</strong>: (starting vertex $s$)</p>
-<ul>
-<li>The set of vertices gone through so far $X$ = empty, add $s$ to $X$</li>
-<li>The shortest distances to all vertices: dictionary $A$: $A[s] = 0$</li>
-<li>A heap queue $Q$ of tuples $(score,node)$ from the nodes in $A$ ordered by their Dijkstra score (just $s$ for now)</li>
-</ul>
-<p><strong>Main loop</strong>: While $Q$ is not empty:</p>
-<ul>
-<li>If we have visited all nodes, break the loop and finish the algorithm</li>
-<li>Otherwise, extract the minimum-value vertex from $Q$ as $v$, add $v$ to visited</li>
-<li>Go through all edges $(v,w)$ ending in $V-X$:<ul>
-<li>For any $w$, if the Dijkstra score $A[v] + c_{vw}$ is lower than current $A[w]$, update $A[w]$, and insert the updated $w$ and its score into $Q$. The heap queue $Q$ will then keep track of the priorities of the nodes.</li>
-</ul>
-</li>
-</ul>
-<p>Take a moment to understand the algorithm. Note that the algorithm is presented slightly differently than in the lecture in that the best <em>current</em> Dijkstra scores are kept in both $A$ and in $Q$. We are keeping a priority queue of the "best" nodes we could explore next, exactly as we should for Dijkstra's algorithm. But we are in fact adding too many things into the queue. That is, whenever we update a node's Dijkstra score (to be lower), we add it to $Q$, even if the same node already exists in $Q$. We never remove the earlier instance of the same node. The updated lower Dijkstra score will have priority over the old one, but the queue will grow because of this. It is therefore useful to break the loop once we have visited all the nodes.</p>
-<p>This is not the most elegant implementation of the algorithm, but it is useful and much faster than the implementation above.</p>
-<h3 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">¶</a></h3><p>Complete the Dijkstra's algorithm implementation in the Python file <code>ses08_extra.py</code> using the operations of the <code>heapq</code> module.</p>
-<p>Here are the heap queue operations you'll use:</p>
-<ul>
-<li><code>heapify(Q)</code>: initializes the heap queue (eg from a list <code>Q</code>)</li>
-<li><code>heappop(Q)</code>: extracts (returns) the minimum-value element from the heap queue</li>
-<li><code>heappush(Q, element)</code>: inserts an element into the queue (correctly for its priority)</li>
-</ul>
-<p>Notice that the <code>heapq</code> module <em>does not create a separate data structure</em>, but works on a standard Python list. It uses "heap operations" to keep the list in the heap order, where the first element is the one with the lowest cost, and the remaining elements are ordered in a way that makes logarithmic operations possible. For details on heap operations and implementing a heap in Python, see <a href="https://runestone.academy/ns/books/published/pythonds/index.html">Miller and Ranum's chapters 7.8-7.10 on heaps</a>. Notice that since a heap is efficient at keeping items sorted, it lends itself to a sorting algorithm called <em>heap sort</em>.</p>
-<p>Compare the algorithm's speed with that of the first implementation for larger graphs. You can generate simple random graphs using the function <code>random_graph</code> in <code>ses08_extra.py</code>. Here's one way of doing so:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span> <span class="c1"># Create nodes that are named integers</span>
-<span class="n">max_edges</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># Max number of edges for random graph</span>
-
-<span class="c1"># Create random graph and time the two algorithms</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">random_graph</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">max_edges</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">list_edges</span><span class="p">())</span>
-<span class="n">start</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="o">%</span><span class="k">timeit</span> dijkstra_heap(g,start)
-<span class="o">%</span><span class="k">timeit</span> dijkstra(g,start)
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The last two commands, preceded by percentage symbols, work in a Jupyter Notebook. They will not work in standard Python files. They are called "magic" IPython commands, and are used for adding convenient functionality to Python. For more on IPython magic, see</p>
-<ul>
-<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic-commands.html">This chapter</a> of the Data Science Handbook</li>
-<li><a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html">The IPython documentation</a></li>
+<li>What a greedy algorithm is?</li>
+<li>What the knapsack problem is, what assumptions we make, and what its output is?</li>
 </ul>
 </div>
 </div>

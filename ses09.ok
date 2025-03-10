@@ -1,0 +1,19 @@
+{
+    "name": "Session 9",
+    "endpoint": "",
+    "src": [
+        "ses09.py",
+		"ses09_extra.py"
+    ],
+    "tests": {
+	  "tests/recap.py": "ok_test",
+      "ses09.py:test_greedy": "doctest",
+	  "ses09_extra.py:test_greedy_fractional": "doctest"
+    },
+    "protocols": [
+        "file_contents",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
